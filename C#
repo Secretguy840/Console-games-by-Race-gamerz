@@ -1,0 +1,22 @@
+using System;
+
+class Program {
+    static void Main() {
+        Random rnd = new Random();
+        int number = rnd.Next(1, 101);
+        int guess;
+
+        Console.WriteLine("Guess the number (1 to 100):");
+        while (true) {
+            guess = int.Parse(Console.ReadLine());
+            if (guess == number) {
+                Console.WriteLine("Correct! You win!");
+                break;
+            } else if (guess < number) {
+                Console.WriteLine("Too low. Try again:");
+            } else {
+                Console.WriteLine("Too high. Try again:");
+            }
+        }
+    }
+}
