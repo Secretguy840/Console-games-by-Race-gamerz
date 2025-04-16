@@ -1,0 +1,18 @@
+extends Node
+
+var number = randi() % 100 + 1
+
+func _ready():
+    print("Guess the number (1–100):")
+
+func _input(event):
+    if event is InputEventKey and event.pressed:
+        var input_string = str(OS.get_scancode_string(event.scancode))
+        var guess = int(input_string) if input_string.is_valid_integer() else -1
+
+        if guess == number:
+            print("Correct! You win!")
+        elif guess < number:
+            print("Too low. Try again.")
+        elif guess > number:
+            print("Too high. Try again.")
